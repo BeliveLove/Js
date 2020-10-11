@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        1.Js里面万物都是对象
+        2.__proto__对象特有的属性,prototype为方法的属性,由于Js万物皆是对象，所以function两个属性都有
+        3.对象的__proto__指向上级的prototype
+        4.Pen.type='black'相当于给Pen本身添加了私有属性
+        5.通过Pen.prototype.say = 'Hello'添加的公共属性
+        6.constructor属性指向当前对象的构造器
+        */
+        function Pen() {
+            
+        }
+        Pen.type = 'black'
+        Pen.prototype.say = 'Hello'
+        console.dir(Pen)//ƒ Pen()
+        console.dir(Pen.__proto__)//ƒ anonymous()
+        console.dir(Pen.prototype)//constructor: ƒ Pen() | __proto__: Object
+        console.log("****************")
+        let _Pen = new Pen()
+        console.dir(_Pen)//Pen
+        console.dir(_Pen.__proto__)//constructor: ƒ Pen() | __proto__: Object
+        console.dir(_Pen.prototype)//undefined   
+        console.log(_Pen.type);//undefined 
+        console.log(_Pen.say);//Hello
+        console.log(_Pen.constructor === Pen)//true
+    </script>
+</body>
+
+</html>
